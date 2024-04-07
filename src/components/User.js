@@ -3,6 +3,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { isVisible } from '@testing-library/user-event/dist/utils'
+import UserConsumer from '../context'
 
 class User extends Component {
 
@@ -29,6 +30,11 @@ class User extends Component {
   //   console.log(e.target);
   //   console.log(this); // asagida bind(birlestirmek) eledik yoxsa undefined olacaqdi (sebebi function custom ozumuz yazmisiq | extendden gelen function deyl (render) )
   // }
+
+  onDeleteUser = (dispatch, e) => {
+    const {id} = this.props;
+    dispatch({ type: 'DELETE_USER', payload: id })
+  }
   render() {
 
     // Destructuring
@@ -36,48 +42,59 @@ class User extends Component {
     const { isVisible } = this.state
 
     return (
-      <div className='col-md-8 mb-4'>
-        <div className="card">
-          <div className="card-header d-flex justify-content-between">
-            {/* <h4 className="d-inline" onClick={() => alert(name)}>{name}</h4> */}
-            {/* <h4 className="d-inline" onClick = {this.onClickEvent.bind(this)}> {name}</h4> */}
-            <h4 className="d-inline" onClick = {this.onClickEvent }> {name}</h4>
+      <UserConsumer>
+        {value => {
+          const { dispatch } = value;
+          return (
+            <div className='col-md-8 mb-4'>
+              <div className="card">
+                <div className="card-header d-flex justify-content-between">
+                  {/* <h4 className="d-inline" onClick={() => alert(name)}>{name}</h4> */}
+                  {/* <h4 className="d-inline" onClick = {this.onClickEvent.bind(this)}> {name}</h4> */}
+                  <h4 className="d-inline" onClick = {this.onClickEvent }> {name}</h4>
 
-            <i className="fas fa-trash" style={{ cursor: "pointer"}} ></i>
-          </div>
-          { isVisible
+                  {/* delete */}
+                  <i onClick={this.onDeleteUser.bind(this, dispatch)} className="fas fa-trash" style={{ cursor: "pointer"}}></i>
+                  {/* <i onClick={() => dispatch({ type: 'DELETE_USER', payload: id })} className="fas fa-trash" style={{ cursor: "pointer"}} ></i> */}
 
-            ? <div className="card-body">
-                <p className="card-text">{department}</p>
-                <p className="card-text">{salary}</p>
+                </div>
+                { isVisible
+
+                  ? <div className="card-body">
+                      <p className="card-text">{department}</p>
+                      <p className="card-text">{salary}</p>
+                    </div>
+
+                  : null
+
+                }
               </div>
 
-            : null
 
-          }
-        </div>
+              {/* <form action="">
+                  <input type="text" />
+                  <button>Add</button>
+              </form> */}
 
+              {/* <ul>
+                <li>Name: Tunay Rustamzade</li>
+                <li>Department: IT</li>
+                <li>Salary: 800</li>
 
-        {/* <form action="">
-            <input type="text" />
-            <button>Add</button>
-        </form> */}
+              </ul> */}
 
-        {/* <ul>
-          <li>Name: Tunay Rustamzade</li>
-          <li>Department: IT</li>
-          <li>Salary: 800</li>
+              {/* <ul>
+                <li>{name} <i className="fas fa-trash"></i></li>
+                <li>{department}</li>
+                <li>{salary}</li>
+              </ul> */}
 
-        </ul> */}
-
-        {/* <ul>
-          <li>{name} <i className="fas fa-trash"></i></li>
-          <li>{department}</li>
-          <li>{salary}</li>
-        </ul> */}
-
-      </div>
+            </div>
+          )
+        }}
+      </UserConsumer>
     )
+
   }
 }
 
