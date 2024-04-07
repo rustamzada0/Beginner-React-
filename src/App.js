@@ -4,6 +4,7 @@ import './App.css';
 import User from './components/User';
 import Navbar from './components/Navbar';
 import Users from './components/Users';
+import Add from './components/Add';
 
 // function App() {
 //   return (
@@ -134,6 +135,11 @@ class App extends Component {
         <h1>App Component</h1>
         
         <Navbar title="Navbar props"/>
+
+        <hr />
+        <br />
+
+        <Add />
 
         <hr />
         <br />
