@@ -8,11 +8,15 @@ class Users extends Component {
     // Destructuring
     // const { users } = this.props
     // console.log(users);
-
+    console.log("4-cu");
     return (
         <UserConsumer>
             {value => {
-                const { users } = value
+                const { users } = value  // state-den gelen data-ni burada tuturuq
+                const { dispatch } = value // state-den gelen dispatch-ni burada tuturuq
+                console.log(value); // { users: Array(4), dispatch: ƒ }
+                console.log(dispatch.type); // undefined ---> Cunki heleki type verilmiyib
+                console.log(users); // Array(4)
                 return (
                     <div>
                         {

@@ -126,6 +126,8 @@ class App extends Component {
   //   ]
   // }
   render() {
+    console.log("2-ci");
+    
     return (
       <div className='container'>
 

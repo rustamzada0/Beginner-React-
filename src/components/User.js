@@ -32,10 +32,15 @@ class User extends Component {
   // }
 
   onDeleteUser = (dispatch, e) => {
+    console.log(dispatch, "salam dispatch");
     const {id} = this.props;
+    console.log(id, "salam id");
     dispatch({ type: 'DELETE_USER', payload: id })
+
   }
   render() {
+
+    console.log("5-ci");
 
     // Destructuring
     const { name, department, salary } = this.props
@@ -44,7 +49,8 @@ class User extends Component {
     return (
       <UserConsumer>
         {value => {
-          const { dispatch } = value;
+          const { dispatch } = value; // state-den gelen dispatch-ni burada tuturuq
+          console.log(dispatch.type); // undefined ---> Cunki heleki type verilmiyib
           return (
             <div className='col-md-8 mb-4'>
               <div className="card">

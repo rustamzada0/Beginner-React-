@@ -4,7 +4,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Navbar = (props) => {
-    console.log(props);
+    console.log("3-cu");
     return (
         <div>
             {/* <h1>Navbar</h1> */}
