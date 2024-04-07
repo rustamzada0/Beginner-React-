@@ -1,7 +1,9 @@
+import React, { Component } from 'react'
 // import logo from './logo.svg';
 import './App.css';
 import User from './components/User';
 import Navbar from './components/Navbar';
+import Users from './components/Users';
 
 // function App() {
 //   return (
@@ -24,63 +26,121 @@ import Navbar from './components/Navbar';
 //   );
 // }
 
-function App() {
-  const a = 23;
-  const isActive = true;
-  return (
-    <div className="container">
+// function App() {
+//   // const a = 23;
+//   // const isActive = true;
 
-      {/* <h1>Hello</h1>
-      {1 + 1}
+//   return (
+//     <div className="container">
 
-      <br />
+//       {/* <h1>Hello</h1>
+//       {1 + 1}
 
-      {"tunay".toUpperCase()}
+//       <br />
 
-      <br />
+//       {"tunay".toUpperCase()}
 
-      {a}
+//       <br />
 
-      <br />
+//       {a}
 
-      <div>
-        {isActive ? "aktivdir" : "passivdir"}
+//       <br />
+
+//       <div>
+//         {isActive ? "aktivdir" : "passivdir"}
+//       </div>
+
+//       <br /> */}
+
+//       {/* <h4 style={{color:"red", fontSize:"30px"}}>App Component</h4> */}
+
+//       {/* <h4 className='header' >App Component</h4> */}
+
+//       <h4>App Component</h4>
+
+//       {/* <Navbar /> */}
+
+//       <Navbar title="Navbar props"/>
+
+//       <hr />
+//       <br />
+
+//       {/* <User /> */}
+
+//       <User/>
+
+//       <User
+//         name="Meftun Mirzezade"
+//         department="Textile"
+//         salary={800}
+//         />
+
+//       <User
+//         name="Abi Qasimo"
+//         department="Paltar"
+//         salary={400}
+//         />
+
+//       {/* <User />
+//       <User />
+//       <User /> */}
+
+
+
+
+//     </div>
+//   );
+// }
+
+
+
+class App extends Component {
+
+  state = {
+    users: [
+      {
+        id: 1,
+        name: "Meftun Mirzezade",
+        department: "Textile",
+        salary: 800
+      },
+      {
+        id: 2,
+        name: "Tunay",
+        department: "Textile",
+        salary: 800
+      },
+      {
+        id: 3,
+        name: "Mirze",
+        department: "Textile",
+        salary: 800
+      },
+      {
+        id: 4,
+        name: "Rustam",
+        department: "Textile",
+        salary: 800
+      }
+    ]
+  }
+
+  render() {
+    return (
+      <div className='container'>
+
+        <h1>App Component</h1>
+        
+        <Navbar title="Navbar props"/>
+
+        <hr />
+        <br />
+
+        <Users users={this.state.users} />
+
       </div>
-
-      <br /> */}
-
-      {/* <h4 style={{color:"red", fontSize:"30px"}}>App Component</h4> */}
-
-      {/* <h4 className='header' >App Component</h4> */}
-
-      <h4>App Component</h4>
-
-      {/* <Navbar /> */}
-
-      <Navbar title="Navbar props"/>
-
-      <hr />
-      <br />
-
-      {/* <User /> */}
-
-      <User/>
-
-      <User
-        name="Meftun Mirzezade"
-        department="Textile"
-        salary={800}
-        />
-
-      {/* <User />
-      <User />
-      <User /> */}
-
-
-
-
-    </div>
-  );
+    )
+  }
 }
 
 
