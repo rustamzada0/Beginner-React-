@@ -96,35 +96,35 @@ import Users from './components/Users';
 
 class App extends Component {
 
-  state = {
-    users: [
-      {
-        id: 1,
-        name: "Meftun Mirzezade",
-        department: "Textile",
-        salary: 800
-      },
-      {
-        id: 2,
-        name: "Tunay",
-        department: "Textile",
-        salary: 800
-      },
-      {
-        id: 3,
-        name: "Mirze",
-        department: "Textile",
-        salary: 800
-      },
-      {
-        id: 4,
-        name: "Rustam",
-        department: "Textile",
-        salary: 800
-      }
-    ]
-  }
-
+  // kohne versiya (buradaki state-leri aparic context.js-e)
+  // state = {
+  //   users: [
+  //     {
+  //       id: 1,
+  //       name: "Meftun Mirzezade",
+  //       department: "Textile",
+  //       salary: 800
+  //     },
+  //     {
+  //       id: 2,
+  //       name: "Tunay",
+  //       department: "Textile",
+  //       salary: 800
+  //     },
+  //     {
+  //       id: 3,
+  //       name: "Mirze",
+  //       department: "Textile",
+  //       salary: 800
+  //     },
+  //     {
+  //       id: 4,
+  //       name: "Rustam",
+  //       department: "Textile",
+  //       salary: 800
+  //     }
+  //   ]
+  // }
   render() {
     return (
       <div className='container'>
@@ -136,7 +136,10 @@ class App extends Component {
         <hr />
         <br />
 
-        <Users users={this.state.users} />
+        <Users />
+
+        {/* kohne versiya */}
+        {/* <Users users={this.state.users} /> */}
 
       </div>
     )
