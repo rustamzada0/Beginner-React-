@@ -20,6 +20,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         users: [...state.users, action.payload]
+        // users: state.users.push(action.payload)
       }
     default:
       return state
