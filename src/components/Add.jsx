@@ -10,7 +10,10 @@ const Animation = posed.div({
 class Add extends Component {
 
   state = {
-    isVisible: true
+    isVisible: true,
+    name: '',
+    department: '',
+    salary: 0
   }
 
   changeVisibility = (e) => {
@@ -19,7 +22,7 @@ class Add extends Component {
 
   render() {
 
-    const { isVisible } = this.state
+    const { isVisible, name, department, salary } = this.state
 
     return (
       <div className='col-md-8 mb-4'>
@@ -33,15 +36,15 @@ class Add extends Component {
                 <form>
                     <div className="form-group">
                         <label htmlFor="name">Name</label>
-                        <input type="text" id="id" name="name" placeholder="Name" className="form-control"/>
+                        <input type="text" id="id" name="name" placeholder="Name" className="form-control" value={name} onChange={e => this.setState({ name: e.target.value })}/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="department">Department</label>
-                        <input type="text" id="department" name="department" placeholder="Department" className="form-control"/>
+                        <input type="text" id="department" name="department" placeholder="Department" className="form-control" value={department} onChange={e => this.setState({ department: e.target.value })}/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="salary">Salary</label>
-                        <input type="text" id="salary" name="salary" placeholder="Salary" className="form-control"/>
+                        <input type="text" id="salary" name="salary" placeholder="Salary" className="form-control" value={salary} onChange={e => this.setState({ salary: e.target.value })}/>
                     </div>
                     <div>
                         <button type="submit" className="btn btn-danger btn-block">Add</button>

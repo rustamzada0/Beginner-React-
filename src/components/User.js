@@ -53,7 +53,7 @@ class User extends Component {
           console.log(dispatch.type); // undefined ---> Cunki heleki type verilmiyib
           return (
             <div className='col-md-8 mb-4'>
-              <div className="card">
+              <div className="card" style={isVisible ? { backgroundColor: '#62848d', color: 'white' } : null}>
                 <div className="card-header d-flex justify-content-between">
                   {/* <h4 className="d-inline" onClick={() => alert(name)}>{name}</h4> */}
                   {/* <h4 className="d-inline" onClick = {this.onClickEvent.bind(this)}> {name}</h4> */}
